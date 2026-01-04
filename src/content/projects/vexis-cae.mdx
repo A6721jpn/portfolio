@@ -1,0 +1,61 @@
+---
+title: "VEXIS-CAE"
+description: "メンブレンキーボード用のラバードム専用非線形解析ソフトウェア"
+publishDate: "2026-01-20"
+trigger: "既存の非線形CAEは非常に難解で、自動化や高速化に追加ライセンスが必要"
+approach: "OSSソルバーをコアに、プリプロセッサとポストプロセッサを自作することで解析精度は担保しつつ柔軟に専用設計化する"
+goal: "CLI/GUIのデュアルユース、解析ジオメトリをラバードームに制限することでヘキサメッシュ生成と解析モデル生成の自動化を達成"
+status: "On-going, developping advanced fuctions"
+# heroImage: "/images/project-title.png"
+tags: ["自作Software", "CAE", "非線形解析", "ヘキサメッシュ"]
+---
+import Timeline from '../../components/Timeline.astro';
+import TimelineItem from '../../components/TimelineItem.astro';
+import Mermaid from '../../components/Mermaid.astro';
+
+## Overview
+
+**VEXIS-CAE**は、メンブレンキーボード用のラバードム専用非線形解析ソフトウェアです。
+プリプロセッサはFElupeとGmshをベースに自作、ソルバーはFEBio4.0をPython経由で使用、ポストプロセッサはMatplotlibをベースに自作しています。
+所定のフォルダにラバードームのジオメトリ（STEP）を配置して解析開始ボタンを押すだけで、ヘキサメッシュ生成から解析ケースへの統合、解析結果のグラフ化・3Dコンター可視化までを完全自動で行います。
+ソフトウェア開発の経験がまったくなかったため、ChatGPT/Geminiと二人三脚での開発になりました。
+
+プロジェクトページ: **[VEXIS-CAE](https://github.com/A6721jpn/vexis "VEXIS-CAE")**
+
+## Architecture
+
+<Mermaid code={`
+graph TD
+  Geometry .step --> Gmsh hex mesh generation by Quasi-structured Quad mesh --> Revolve 2D mesh to 3D mesh --> Ingegrate 3D mesh to FEBio analysis template --> Purse .xplt --> Processing and extract CSV
+`} />
+
+## Timeline
+
+<Timeline>
+  <TimelineItem date="2025-11" title="Phase 1">
+     ”こうすればラバードームの座屈反力解析自動化出来そう”と思いつく。Chat GPTと相談し開発開始。
+  </TimelineItem>
+  <TimelineItem date="2025-11" title="Phase 1">
+     ヘキサ構造化メッシュではジオメトリへの再現性が低いため、準構造化矩形メッシュを回転押し出しする方針を決める。Gmshの回転押し出しにバグがあったため、FElupeを部分的に使用して解決する。
+     CLIベースのプロトタイプとして、メッシュ生成機能だけをまず作り、そこから解析プロセス順に機能を開発していく。  
+     メッシュ生成では回転押し出しの中心軸周辺で要素が縮退することを防ぐため、O-grid法を使って中心のみスイープするアルゴリズムを実装し解決。
+     FEBio解析テンプレートへの統合では、ラバードームの形状や寸法が変わっても接触定義を破綻させずに柔軟に再定義するよう、メッシュ要素の法線方向に着目してアルゴリズムを考案し解決。
+  </TimelineItem>
+  <TimelineItem date="2025-12" title="Phase 2">
+     Google Antigravityがリリースされたため、開発環境を以降、Githubの使い方を覚えてリポジトリ上で開発するようになる。
+     Version 0.4まで開発が進み、CLIで主要機能の実装が完了する。
+  </TimelineItem>
+  <TimelineItem date="2026-01" title="Phase 3">
+     GUIを設計し、CLIの機能をGUIに統合する。ロゴとソフトウェアの名前を考える。
+     Versionを1.0とし、リポジトリを公開する。
+  </TimelineItem>
+</Timeline>
+
+## Future
+今後は、下記機能の実装を予定しています。
+**1. 解析結果の分析**
+CSVグラフからF-Sカーブの山や谷、クリック率やその他感触設計に必要なパラメータを計算して、まとめて出力する機能。
+**2. 解析条件の決定支援**
+タグチメソッドを使い、実験計画法ベースで”解析で振るべき設計変数”を決定し、最小の解析ケースで最大の結果を得る。
+**3. ラバードーム自体の設計支援**
+CATIAスクリプトを外部から使用して、あらかじめリスト化された寸法値にジオメトリを編集しSTEPで保存することで解析ケースのもととなるSTEPデータを作成する機能。
