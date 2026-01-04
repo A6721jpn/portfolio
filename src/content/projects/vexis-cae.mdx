@@ -26,7 +26,11 @@ import Mermaid from '../../components/Mermaid.astro';
 
 <Mermaid code={`
 graph TD
-  Geometry .step --> Gmsh hex mesh generation by Quasi-structured Quad mesh --> Revolve 2D mesh to 3D mesh --> Ingegrate 3D mesh to FEBio analysis template --> Purse .xplt --> Processing and extract CSV
+  A[Geometry .step] --> B[Gmsh hex mesh generation]
+  B --> C[Revolve 2D mesh to 3D mesh]
+  C --> D[Integrate 3D mesh to FEBio template]
+  D --> E[Parse .xplt]
+  E --> F[Processing and extract CSV]
 `} />
 
 ## Timeline
