@@ -31,6 +31,11 @@ const { Content } = await project.render();
           </span>
         ))}
       </div>
+      {project.data.heroImage && (
+        <div class="mb-4 flex justify-center">
+          <img src={project.data.heroImage} alt={project.data.title} class="max-h-[300px] w-auto h-auto object-contain rounded-lg shadow-md" />
+        </div>
+      )}
     </header>
 
     <ProjectSummary 

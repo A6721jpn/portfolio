@@ -57,6 +57,9 @@
           ],
           "default": "Completed"
         },
+        "heroImage": {
+          "type": "string"
+        },
         "$schema": {
           "type": "string"
         }

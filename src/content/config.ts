@@ -13,4 +13,5 @@ const projects = defineCollection({
         heroImage: z.string().optional(),
     }),
 });
-
+
+export const collections = { projects };
