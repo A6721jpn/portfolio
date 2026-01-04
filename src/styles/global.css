@@ -1,0 +1,11 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "katex/dist/katex.min.css"; 
+
+/* Custom Global Styles */
+body {
+  @apply bg-mono-50 text-mono-900 dark:bg-mono-950 dark:text-mono-50 transition-colors duration-300;
+}
+
+/* Ensure KaTeX fonts are loaded if needed, though usually handled by the CSS import */

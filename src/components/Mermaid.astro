@@ -1,0 +1,15 @@
+---
+interface Props {
+  code?: string;
+}
+const { code } = Astro.props;
+---
+<div class="mermaid my-8 flex justify-center bg-white dark:bg-mono-50 p-4 border rounded-lg">
+  {code ? code : <slot />}
+</div>
+
+<script>
+  // Dynamic import mermaid to run on client side only
+  import mermaid from 'mermaid';
+  mermaid.initialize({ startOnLoad: true, theme: 'neutral' });
+</script>

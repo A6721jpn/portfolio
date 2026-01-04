@@ -1,0 +1,48 @@
+---
+title: "Personal Finance Dashboard"
+description: "A comprehensive dashboard for tracking personal expenses and investments."
+publishDate: "2023-10-15"
+trigger: "Excelでの家計簿管理に限界を感じ、リアルタイムで資産状況を把握したかった。"
+approach: "ReactとFirebaseを使用し、銀行APIと連携するSPAを構築。UIは直感的なグラフ操作を重視。"
+goal: "月次の収支確認時間を50%削減し、投資配分を自動可視化する。"
+status: "Completed"
+tags: ["React", "Firebase", "Chart.js"]
+---
+import Timeline from '../../components/Timeline.astro';
+import TimelineItem from '../../components/TimelineItem.astro';
+import Mermaid from '../../components/Mermaid.astro';
+
+## Architecture
+
+<Mermaid code={`
+graph LR
+    User[Client Browser] -- HTTPS --> CDN[Hosting]
+    User -- API Calls --> Func[Cloud Functions]
+    Func --> DB[(Firestore)]
+    Func --> Bank[Bank API]
+`} />
+
+## Development Timeline
+
+<Timeline status="Completed">
+  <TimelineItem date="2023-08" title="Initial Prototype">
+    FigmaでUIを設計し、Create React Appでモックアップを作成。
+    主要な画面遷移とデータ構造を決定。
+  </TimelineItem>
+  <TimelineItem date="2023-09" title="API Integration">
+    銀行APIとの接続検証を実施。OAuth認証フローの実装に苦戦したが、セキュリティ要件をクリア。
+  </TimelineItem>
+  <TimelineItem date="2023-10" title="Release & Feedback">
+    MVPをデプロイ。自身のデータでテスト運用を開始し、レスポンス速度の課題を発見・改善。
+  </TimelineItem>
+</Timeline>
+
+## Technical Details
+
+資産推移の予測には複利計算式を用いています。
+
+$$
+A = P \left(1 + \frac{r}{n}\right)^{nt}
+$$
+
+ここで、$P$は元本、$r$は年利率、$t$は運用年数です。

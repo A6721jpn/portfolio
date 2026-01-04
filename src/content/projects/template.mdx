@@ -1,0 +1,32 @@
+---
+title: "Project Title"
+description: "Short description of the project."
+publishDate: "2024-01-01"
+trigger: "このプロジェクトを始めたきっかけ"
+approach: "どのように解決したか、技術的なアプローチ"
+goal: "最終的な成果や学び"
+status: "Planning"
+tags: ["Tag1", "Tag2"]
+---
+import Timeline from '../../components/Timeline.astro';
+import TimelineItem from '../../components/TimelineItem.astro';
+import Mermaid from '../../components/Mermaid.astro';
+
+## Overview
+
+ここにプロジェクトの詳細な説明を書きます。Markdownが使えます。
+
+## Architecture
+
+<Mermaid code={`
+graph TD
+  User --> App
+`} />
+
+## Timeline
+
+<Timeline>
+  <TimelineItem date="202X-XX" title="Phase 1">
+     やったことの説明。
+  </TimelineItem>
+</Timeline>

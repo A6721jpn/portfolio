@@ -1,0 +1,46 @@
+---
+title: "Smart Home Automation"
+description: "Optimizing home energy usage with IoT sensors and machine learning."
+publishDate: "2024-01-20"
+trigger: "冬場の電気代が高騰したため、エアコンの稼働効率を最適化したかった。"
+approach: "Raspberry Piと温度センサーを各部屋に配置し、外気温と室温の相関を学習させて制御。"
+goal: "快適性を損なわずに電気代を15%削減する。"
+status: "Completed"
+tags: ["IoT", "Python", "Raspberry Pi", "Machine Learning"]
+---
+import Timeline from '../../components/Timeline.astro';
+import TimelineItem from '../../components/TimelineItem.astro';
+import Mermaid from '../../components/Mermaid.astro';
+
+## System Flow
+
+<Mermaid code={`
+sequenceDiagram
+    participant Sensor as Temp Sensor
+    participant Pi as Raspberry Pi Controller
+    participant AC as Air Conditioner
+    loop Every 5 mins
+        Sensor->>Pi: Send Temperature
+        Pi->>Pi: Analyze & Predict
+        alt Too Cold
+            Pi->>AC: Send IR Signal (ON)
+        else Optimal
+            Pi->>AC: Send IR Signal (ECO Mode)
+        end
+    end
+`} />
+
+## Development Timeline
+
+<Timeline status="Completed">
+  <TimelineItem date="2023-11" title="Hardware Setup">
+    DHT22センサーと赤外線送信モジュールをRaspberry Piに配線。
+    Lチカから始めて、エアコンの信号解析に成功。
+  </TimelineItem>
+  <TimelineItem date="2023-12" title="Data Collection & Modeling">
+    1ヶ月分の室温データを収集。単純なルールベース制御からスタート。
+  </TimelineItem>
+  <TimelineItem date="2024-01" title="Optimization">
+    機械学習モデル（LightGBM）を導入し、30分後の室温変化を予測して先行制御するように改良。
+  </TimelineItem>
+</Timeline>

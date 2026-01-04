@@ -1,0 +1,49 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import StatusBadge from '../../components/StatusBadge.astro';
+import { getCollection } from 'astro:content';
+
+const projects = await getCollection('projects');
+// Sort by date desc
+projects.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data.publishDate).valueOf());
+---
+
+<Layout title="Projects - My Portfolio">
+	<div class="max-w-4xl mx-auto">
+		<h1 class="text-3xl font-bold mb-8">Projects</h1>
+		<div class="grid gap-8">
+			{projects.map((project) => (
+				<article class="bg-white dark:bg-mono-900 border border-mono-200 dark:border-mono-800 rounded-lg p-6 hover:shadow-lg transition-shadow">
+					<div class="flex flex-col md:flex-row md:items-start md:justify-between">
+            <div class="flex-1">
+              <div class="flex items-center gap-3 mb-2">
+                <StatusBadge status={project.data.status} />
+                <h2 class="text-2xl font-bold">
+                  <a href={`/projects/${project.slug}`} class="hover:underline decoration-mono-500 underline-offset-4">
+                    {project.data.title}
+                  </a>
+                </h2>
+              </div>
+              <p class="text-mono-600 dark:text-mono-400 mb-4 line-clamp-3">
+                {project.data.description}
+              </p>
+              <div class="flex flex-wrap gap-2">
+                {project.data.tags?.map((tag) => (
+                  <span class="text-xs font-medium px-2.5 py-0.5 rounded bg-mono-100 dark:bg-mono-800 text-mono-800 dark:text-mono-200">
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <div class="mt-4 md:mt-0 md:ml-6 flex-shrink-0 text-right">
+               <time class="text-sm text-mono-500 block mb-2">{new Date(project.data.publishDate).toLocaleDateString()}</time>
+               <a href={`/projects/${project.slug}`} class="text-sm font-semibold text-mono-900 dark:text-mono-100 hover:text-mono-600 dark:hover:text-mono-300">
+                 Read more →
+               </a>
+            </div>
+					</div>
+				</article>
+			))}
+		</div>
+	</div>
+</Layout>

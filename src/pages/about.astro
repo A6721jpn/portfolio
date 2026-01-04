@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { AUTHOR_PROFILE, SOCIAL_LINKS } from '../consts';
+---
+
+<Layout title="About - My Portfolio">
+	<div class="max-w-3xl mx-auto">
+		<h1 class="text-3xl font-bold mb-8">Akihisa Okuni</h1>
+		
+		<div class="prose dark:prose-invert prose-mono max-w-none">
+			<p class="text-lg mb-6">
+				{AUTHOR_PROFILE.bio}
+			</p>
+
+			<h2 class="text-2xl font-semibold mt-10 mb-4">Skills</h2>
+			<ul class="grid grid-cols-2 md:grid-cols-3 gap-4 list-none pl-0">
+        {AUTHOR_PROFILE.skills.map((skill) => (
+          <li class="bg-mono-100 dark:bg-mono-800 p-3 rounded text-center">{skill}</li>
+        ))}
+			</ul>
+
+      {AUTHOR_PROFILE.qualifications && AUTHOR_PROFILE.qualifications.length > 0 && (
+        <>
+          <h2 class="text-2xl font-semibold mt-10 mb-4">Qualifications</h2>
+          <ul class="list-disc pl-5 space-y-2">
+            {AUTHOR_PROFILE.qualifications.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {AUTHOR_PROFILE.awards && AUTHOR_PROFILE.awards.length > 0 && (
+        <>
+          <h2 class="text-2xl font-semibold mt-10 mb-4">Awards</h2>
+          <ul class="list-disc pl-5 space-y-2">
+            {AUTHOR_PROFILE.awards.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </>
+      )}
+
+      {AUTHOR_PROFILE.workExperience && AUTHOR_PROFILE.workExperience.length > 0 && (
+        <>
+          <h2 class="text-2xl font-semibold mt-10 mb-4">Work Experience</h2>
+          <div class="space-y-4">
+            {AUTHOR_PROFILE.workExperience.map((job) => (
+              <div class="flex flex-col sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="font-medium text-lg">{job.company}</h3>
+                  <p class="text-mono-600 dark:text-mono-400">{job.role}</p>
+                </div>
+                <div class="text-mono-500 text-sm sm:text-right mt-1 sm:mt-0">{job.period}</div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+      {AUTHOR_PROFILE.education && AUTHOR_PROFILE.education.length > 0 && (
+        <>
+          <h2 class="text-2xl font-semibold mt-10 mb-4">Education</h2>
+          <div class="space-y-4">
+            {AUTHOR_PROFILE.education.map((edu) => (
+              <div class="flex flex-col sm:flex-row sm:justify-between">
+                <div>
+                  <h3 class="font-medium text-lg">{edu.school}</h3>
+                  <p class="text-mono-600 dark:text-mono-400">{edu.department}</p>
+                </div>
+                <div class="text-mono-500 text-sm sm:text-right mt-1 sm:mt-0">{edu.period}</div>
+              </div>
+            ))}
+          </div>
+        </>
+      )}
+
+			<h2 class="text-2xl font-semibold mt-10 mb-4">Contact</h2>
+			<p>
+				お仕事の依頼や技術的なご相談は、以下のリンクからご連絡ください。
+			</p>
+			<div class="flex space-x-4 mt-4">
+				<a href={SOCIAL_LINKS.github} target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">GitHub</a>
+				<a href={SOCIAL_LINKS.twitter} target="_blank" class="text-blue-600 dark:text-blue-400 hover:underline">Twitter (X)</a>
+				<a href={SOCIAL_LINKS.email} class="text-blue-600 dark:text-blue-400 hover:underline">Email</a>
+			</div>
+		</div>
+	</div>
+</Layout>
