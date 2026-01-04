@@ -12,10 +12,10 @@ import Layout from '../layouts/Layout.astro';
 			Built with simplicity and performance in mind.
 		</p>
 		<div class="flex space-x-4">
-			<a href="/projects" class="px-6 py-3 bg-mono-900 text-white dark:bg-mono-50 dark:text-mono-900 font-medium rounded-lg hover:opacity-90 transition-opacity">
+			<a href={`${import.meta.env.BASE_URL}projects`} class="px-6 py-3 bg-mono-900 text-white dark:bg-mono-50 dark:text-mono-900 font-medium rounded-lg hover:opacity-90 transition-opacity">
 				View Projects
 			</a>
-			<a href="/about" class="px-6 py-3 border border-mono-300 dark:border-mono-600 font-medium rounded-lg hover:bg-mono-100 dark:hover:bg-mono-800 transition-colors">
+			<a href={`${import.meta.env.BASE_URL}about`} class="px-6 py-3 border border-mono-300 dark:border-mono-600 font-medium rounded-lg hover:bg-mono-100 dark:hover:bg-mono-800 transition-colors">
 				About Me
 			</a>
 		</div>
