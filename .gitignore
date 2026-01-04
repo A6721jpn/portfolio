@@ -1,3 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Astro
+.astro/
+
+# Python
 venv/
 __pycache__/
 *.pyc
+
+# Logs
+*.log
+build_log.txt
+
+# OS files
+.DS_Store
+Thumbs.db
