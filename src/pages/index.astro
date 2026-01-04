@@ -5,17 +5,17 @@ import { getUrl } from '../utils/url';
 
 <Layout title="My Sandbox">
 	<!-- Hero Background -->
-	<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10 grayscale contrast-125 bg-white dark:bg-mono-950">
+	<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10 grayscale contrast-125">
 		<div 
-			class="absolute inset-0 bg-contain bg-center bg-no-repeat" 
+			class="absolute inset-0 bg-cover bg-center" 
 			style={`background-image: url(${getUrl('/images/hero-3.png')}); clip-path: polygon(0 0, 45% 0, 25% 100%, 0 100%);`}
 		></div>
 		<div 
-			class="absolute inset-0 bg-contain bg-center bg-no-repeat" 
+			class="absolute inset-0 bg-cover bg-center" 
 			style={`background-image: url(${getUrl('/images/hero-2.png')}); clip-path: polygon(45% 0, 80% 0, 60% 100%, 25% 100%);`}
 		></div>
 		<div 
-			class="absolute inset-0 bg-contain bg-center bg-no-repeat" 
+			class="absolute inset-0 bg-cover bg-center" 
 			style={`background-image: url(${getUrl('/images/hero-1.png')}); clip-path: polygon(80% 0, 100% 0, 100% 100%, 60% 100%);`}
 		></div>
 	</div>
