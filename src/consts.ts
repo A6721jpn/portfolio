@@ -37,7 +37,7 @@ export const AUTHOR_PROFILE = {
     awards: [
         '2017年 日本金属学会 東海支部 優秀ポスター賞',
         'Patent pending: 7',
-        'Patent granted: 5',
+        'Patent issued: 5',
     ],
     education: [
         { period: '2010.04 - 2015.03', school: '神戸市立工業高等専門学校', department: '機械工学科' },

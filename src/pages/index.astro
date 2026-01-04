@@ -4,19 +4,35 @@ import { getUrl } from '../utils/url';
 ---
 
 <Layout title="My Portfolio">
-	<div class="flex flex-col items-center justify-center min-h-[60vh] text-center">
+	<!-- Hero Background -->
+	<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10 grayscale contrast-125">
+		<div 
+			class="absolute inset-0 bg-cover bg-center" 
+			style={`background-image: url(${getUrl('/images/hero-1.png')}); clip-path: polygon(0 0, 45% 0, 25% 100%, 0 100%);`}
+		></div>
+		<div 
+			class="absolute inset-0 bg-cover bg-center" 
+			style={`background-image: url(${getUrl('/images/hero-2.png')}); clip-path: polygon(45% 0, 80% 0, 60% 100%, 25% 100%);`}
+		></div>
+		<div 
+			class="absolute inset-0 bg-cover bg-center" 
+			style={`background-image: url(${getUrl('/images/hero-3.png')}); clip-path: polygon(80% 0, 100% 0, 100% 100%, 60% 100%);`}
+		></div>
+	</div>
+
+	<div class="flex flex-col items-center justify-center min-h-[70vh] text-center relative z-10">
 		<h1 class="text-5xl font-extrabold mb-6 tracking-tight">
 			Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-mono-500 to-mono-800 dark:from-mono-200 dark:to-mono-500">My Portfolio</span>
 		</h1>
-		<p class="text-xl text-mono-600 dark:text-mono-400 max-w-2xl mb-10">
-			A collection of my work, thoughts, and technical experiments.
+		<p class="text-xl font-medium text-mono-700 dark:text-mono-300 max-w-2xl mb-10 leading-relaxed bg-white/30 dark:bg-black/30 backdrop-blur-sm rounded-lg p-4 inline-block">
+			A collection of my side projects, thoughts, and technical experiments.
 			Built with simplicity and performance in mind.
 		</p>
 		<div class="flex space-x-4">
-			<a href={getUrl('/projects')} class="px-6 py-3 bg-mono-900 text-white dark:bg-mono-50 dark:text-mono-900 font-medium rounded-lg hover:opacity-90 transition-opacity">
+			<a href={getUrl('/projects')} class="px-8 py-4 bg-mono-900 text-white dark:bg-mono-50 dark:text-mono-900 font-bold rounded-xl hover:scale-105 transition-transform shadow-xl">
 				View Projects
 			</a>
-			<a href={getUrl('/about')} class="px-6 py-3 border border-mono-300 dark:border-mono-600 font-medium rounded-lg hover:bg-mono-100 dark:hover:bg-mono-800 transition-colors">
+			<a href={getUrl('/about')} class="px-8 py-4 border-2 border-mono-300 dark:border-mono-600 font-bold rounded-xl hover:bg-white dark:hover:bg-mono-800 transition-all backdrop-blur-sm">
 				About Me
 			</a>
 		</div>
