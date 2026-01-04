@@ -8,7 +8,7 @@ import rehypeKatex from 'rehype-katex';
 export default defineConfig({
   // GitHub Pages configuration
   site: 'https://A6721jpn.github.io',
-  base: '/portfolio',
+  base: '/portfolio/',
   integrations: [
     tailwind({
       // Example: Disable default base styles if we want total control, but usually keeping them is fine.
