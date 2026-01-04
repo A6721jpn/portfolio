@@ -36,7 +36,7 @@ projects.sort((a, b) => new Date(b.data.publishDate).valueOf() - new Date(a.data
                 ))}
               </div>
               <div class="flex flex-col gap-1 mt-4 pt-4 border-t border-mono-100 dark:border-mono-800">
-                 <time class="text-sm text-mono-500">{new Date(project.data.publishDate).toLocaleDateString()}</time>
+                 <time class="text-base text-mono-500">{new Date(project.data.publishDate).toLocaleDateString()}</time>
                  <a href={getUrl(`/projects/${project.slug}`)} class="text-sm font-semibold text-mono-900 dark:text-mono-100 hover:text-mono-600 dark:hover:text-mono-300">
                    Read more →
                  </a>

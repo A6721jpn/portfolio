@@ -10,7 +10,7 @@ import { getUrl } from '../utils/url';
       <ul class="flex space-x-6">
         {NAV_ITEMS.map((item) => (
           <li>
-            <a href={getUrl(item.href)} class="text-mono-600 hover:text-mono-900 dark:text-mono-400 dark:hover:text-mono-100 transition-colors">
+            <a href={getUrl(item.href)} class="text-lg font-medium text-mono-600 hover:text-mono-900 dark:text-mono-400 dark:hover:text-mono-100 transition-colors">
               {item.label}
             </a>
           </li>
