@@ -26,17 +26,18 @@ export const AUTHOR_PROFILE = {
         'Mechanical design: CATIA, Fusion',
         'Linear structural analysis: CATIA',
         'Non-linear structural analysis: FEBio',
-        'Python: mostly vibe coding',
-        '3D printing: Bambulab P1S',
-        'DFM and supplier management'
+        'Vibe coding: Google Antigravity + Python',
+        '3D printing: BBL P1S',
+        'DFM and supplier management',
+        'Patent idiation',
     ],
     qualifications: [
         'TOEIC 885',
-        // '応用情報技術者',
     ],
     awards: [
         '2017年 日本金属学会 東海支部 優秀ポスター賞',
-        // '202X年 ○○コンテスト 優勝',
+        'Patent pending: 7',
+        'Patent granted: 5',
     ],
     education: [
         { period: '2010.04 - 2015.03', school: '神戸市立工業高等専門学校', department: '機械工学科' },
