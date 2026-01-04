@@ -3,26 +3,26 @@ import Layout from '../layouts/Layout.astro';
 import { getUrl } from '../utils/url';
 ---
 
-<Layout title="My Portfolio">
+<Layout title="My Sandbox">
 	<!-- Hero Background -->
-	<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10 grayscale contrast-125">
+	<div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none opacity-20 dark:opacity-10 grayscale contrast-125 bg-white dark:bg-mono-950">
 		<div 
-			class="absolute inset-0 bg-cover bg-center" 
+			class="absolute inset-0 bg-contain bg-center bg-no-repeat" 
 			style={`background-image: url(${getUrl('/images/hero-3.png')}); clip-path: polygon(0 0, 45% 0, 25% 100%, 0 100%);`}
 		></div>
 		<div 
-			class="absolute inset-0 bg-cover bg-center" 
+			class="absolute inset-0 bg-contain bg-center bg-no-repeat" 
 			style={`background-image: url(${getUrl('/images/hero-2.png')}); clip-path: polygon(45% 0, 80% 0, 60% 100%, 25% 100%);`}
 		></div>
 		<div 
-			class="absolute inset-0 bg-cover bg-center" 
+			class="absolute inset-0 bg-contain bg-center bg-no-repeat" 
 			style={`background-image: url(${getUrl('/images/hero-1.png')}); clip-path: polygon(80% 0, 100% 0, 100% 100%, 60% 100%);`}
 		></div>
 	</div>
 
 	<div class="flex flex-col items-center justify-center min-h-[70vh] text-center relative z-10">
 		<h1 class="text-5xl font-extrabold mb-6 tracking-tight">
-			Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-mono-500 to-mono-800 dark:from-mono-200 dark:to-mono-500">My Portfolio</span>
+			Welcome to <span class="text-transparent bg-clip-text bg-gradient-to-r from-mono-500 to-mono-800 dark:from-mono-200 dark:to-mono-500">My Sandbox</span>
 		</h1>
 		<p class="text-xl font-medium text-mono-700 dark:text-mono-300 max-w-2xl mb-10 leading-relaxed bg-white/30 dark:bg-black/30 backdrop-blur-sm rounded-lg p-4 inline-block">
 			A collection of my side projects, thoughts, and technical experiments.
