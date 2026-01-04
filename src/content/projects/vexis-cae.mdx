@@ -15,13 +15,14 @@ import Mermaid from '../../components/Mermaid.astro';
 
 # Overview
 
-**VEXIS-CAE**は、メンブレンキーボード用のラバードーム専用非線形解析ソフトウェアです。  
+** VEXIS-CAE **は、メンブレンキーボード用のラバードーム専用非線形解析ソフトウェアです。  
 プリプロセッサはFElupeとGmshをベースに自作、ソルバーはFEBio4.0をPython経由で使用、ポストプロセッサはMatplotlibをベースに自作しています。  
 所定のフォルダにラバードームのジオメトリ（STEP）をドラッグアンドドロップで配置して解析開始ボタンを押すだけで、ヘキサメッシュ生成から解析ケースへの統合、解析結果のグラフ化・3Dコンター可視化までを完全自動で行います。  
 ソフトウェア開発の経験がまったくなかったため、ChatGPT/Geminiと二人三脚での開発になりました。  
 
+使い方が非常に簡単なため、解析専任者ではなく設計者自身が解析を実行でき、自動化によって夜間などに無人での解析もサポートします。それによって設計形状の自由で幅広い探索をサポートします。
 
-プロジェクトページ: **[VEXIS-CAE](https://github.com/A6721jpn/vexis "VEXIS-CAE")**  
+プロジェクトページ: ** [VEXIS-CAE](https://github.com/A6721jpn/vexis "VEXIS-CAE") **  
 
 
 
@@ -29,18 +30,18 @@ import Mermaid from '../../components/Mermaid.astro';
 
 <Mermaid code={`
 graph TD
-  A[Geometry .step] --> B[Gmsh hex mesh generation]
-  B --> C[Revolve 2D mesh to 3D mesh]
-  C --> D[Integrate 3D mesh to FEBio template]
-  D --> E[Parse .xplt]
-  E --> F[Processing and extract CSV]
+  A[Geometry .step] --> B[Gmsh quad mesh generation]
+  B --> C[Revolve 2D mesh to 3D mesh .vtk]
+  C --> D[Integrate 3D mesh to FEBio template analysis model .feb]
+  D --> E[Parse analysis result.xplt]
+  E --> F[Processing and extract result to .csv]
 `} />
 
 # Timeline
 
 <Timeline>
   <TimelineItem date="2025-11" title="Phase 0">
-     ”こうすればラバードームの座屈反力解析自動化出来そう”と思いつく。Chat GPTと相談し使うライブラリなどを選定していく。
+     ”こうすればラバードームの座屈反力解析を自動化出来そう”と思いつく。Chat GPTと相談し使うライブラリなどを選定していく。
   </TimelineItem>
   <TimelineItem date="2025-11" title="Phase 1">
      ヘキサ構造化メッシュではジオメトリへの再現性が低いため、準構造化矩形メッシュを回転押し出しする方針を決める。Gmshの回転押し出しにバグがあったため、FElupeを部分的に使用して解決する。  
