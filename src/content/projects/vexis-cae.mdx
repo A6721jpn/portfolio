@@ -13,16 +13,16 @@ import Timeline from '../../components/Timeline.astro';
 import TimelineItem from '../../components/TimelineItem.astro';
 import Mermaid from '../../components/Mermaid.astro';
 
-## Overview
+# Overview
 
 **VEXIS-CAE**は、メンブレンキーボード用のラバードム専用非線形解析ソフトウェアです。
 プリプロセッサはFElupeとGmshをベースに自作、ソルバーはFEBio4.0をPython経由で使用、ポストプロセッサはMatplotlibをベースに自作しています。
 所定のフォルダにラバードームのジオメトリ（STEP）を配置して解析開始ボタンを押すだけで、ヘキサメッシュ生成から解析ケースへの統合、解析結果のグラフ化・3Dコンター可視化までを完全自動で行います。
 ソフトウェア開発の経験がまったくなかったため、ChatGPT/Geminiと二人三脚での開発になりました。  
-
+  
 プロジェクトページ: **[VEXIS-CAE](https://github.com/A6721jpn/vexis "VEXIS-CAE")**  
 
-## Architecture
+# Architecture
 
 <Mermaid code={`
 graph TD
@@ -33,7 +33,7 @@ graph TD
   E --> F[Processing and extract CSV]
 `} />
 
-## Timeline
+# Timeline
 
 <Timeline>
   <TimelineItem date="2025-11" title="Phase 0">
@@ -55,7 +55,7 @@ graph TD
   </TimelineItem>
 </Timeline>
 
-## Future
+# Future
 今後は、下記機能の実装を予定しています。  
 **1. 解析結果の分析**  
 CSVグラフからF-Sカーブの山や谷、クリック率やその他感触設計に必要なパラメータを計算して、まとめて出力する機能。  
