@@ -17,10 +17,11 @@ import Mermaid from '../../components/Mermaid.astro';
 
 <Mermaid code={`
 graph LR
-    User[Client Browser] -- HTTPS --> CDN[Hosting]
-    User -- API Calls --> Func[Cloud Functions]
-    Func --> DB[(Firestore)]
-    Func --> Bank[Bank API]
+    User[Client Browser] -- HTTPS -- [x] **GitHub Setup**
+    - [x] Update `.gitignore` <!-- id: 23 -->
+    - [x] Commit current changes <!-- id: 24 -->
+    - [x] Create GitHub repository & Push <!-- id: 25 -->
+ Bank[Bank API]
 `} />
 
 ## Development Timeline
