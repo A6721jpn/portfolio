@@ -8,4 +8,33 @@ body {
   @apply bg-mono-50 text-mono-900 dark:bg-mono-950 dark:text-mono-50 transition-colors duration-300;
 }
 
+/* Markdown Content Styles */
+.markdown-body h1 {
+  @apply text-4xl font-bold mt-12 mb-6 border-b pb-2 border-mono-200 dark:border-mono-800;
+}
+
+.markdown-body h2 {
+  @apply text-3xl font-bold mt-10 mb-5;
+}
+
+.markdown-body h3 {
+  @apply text-2xl font-bold mt-8 mb-4;
+}
+
+.markdown-body p {
+  @apply mb-4 leading-relaxed;
+}
+
+.markdown-body ul {
+  @apply list-disc list-inside mb-4 ml-4;
+}
+
+.markdown-body li {
+  @apply mb-2;
+}
+
+.markdown-body strong {
+  @apply font-bold text-mono-900 dark:text-mono-100;
+}
+
 /* Ensure KaTeX fonts are loaded if needed, though usually handled by the CSS import */
